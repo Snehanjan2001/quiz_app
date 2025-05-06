@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Test</title>
+</head>
+<body>
+  <h2>WebSocket Test</h2>
+  <script>
+    const sessionCode = "PZ06DI";
+    const username = "Player2";
+    const socket = new WebSocket(`ws://localhost:8000/ws/${sessionCode}/${username}`);
+
+    socket.onopen = () => console.log("🎉 Connected to WebSocket");
+    socket.onmessage = (e) => console.log("📩 Message received:", e.data);
+    socket.onclose = () => console.log("❌ WebSocket closed");
+    socket.onerror = (e) => console.error("⚠️ WebSocket error:", e);
+  </script>
+</body>
+</html>
